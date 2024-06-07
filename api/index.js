@@ -1,6 +1,6 @@
 // api/index.js
-const path = require('path');
+import path from 'path';
 
-module.exports = (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'index.html'));
+export default (req, res) => {
+  res.sendFile(path.resolve('public', 'index.html'));
 };
