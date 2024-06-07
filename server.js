@@ -1,4 +1,4 @@
-const bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
@@ -6,8 +6,8 @@ const fs = require('fs');
 const app = express();
 
 // This will parse the body of incoming POST requests
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json()); // To parse JSON bodies
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Read the votes from the file
 let votes = JSON.parse(fs.readFileSync('votes.json', 'utf8'));
